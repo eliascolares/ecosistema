@@ -1,0 +1,35 @@
+<mat-sidenav-container [hasBackdrop]="true" class="sidenav-container">
+  <mat-sidenav #sidenav fixedInViewport="true" fixedTopGap="50" class="sidenav">
+
+    <ng-material-multilevel-menu
+      [configuration]='config'
+      [items]='menuItems'
+      (selectedItem)="selectItem(sidenav)">
+    </ng-material-multilevel-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="navbar-black mat-elevation-z2">
+      <mat-toolbar-row>
+
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <img [src]="logoUrl" alt="" style="padding-left: 10px; max-height: 25px;">
+
+        <span class="spacer"></span>
+
+        <button mat-button [matMenuTriggerFor]="menu" class="float-right user-name">{{name}} <i class="fas fa-angle-down"></i></button>
+        <mat-menu #menu="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="mat-elevation-z2">
+          <button mat-menu-item (click)="onLogout()">Sair</button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
