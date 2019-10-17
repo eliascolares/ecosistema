@@ -3,7 +3,7 @@
 
     <ng-material-multilevel-menu
       [configuration]='config'
-      [items]='menuItems'
+      [items]='params.menuItems'
       (selectedItem)="selectItem(sidenav)">
     </ng-material-multilevel-menu>
   </mat-sidenav>
@@ -16,14 +16,13 @@
           <mat-icon>menu</mat-icon>
         </button>
 
-        <img [src]="logoUrl" alt="" style="padding-left: 10px; max-height: 25px;">
+        <img [src]="params.logoUrl" alt="" style="padding-left: 10px; max-height: 25px;">
 
         <span class="spacer"></span>
 
-        <button mat-button [matMenuTriggerFor]="menu" class="float-right user-name">{{name}} <i class="fas fa-angle-down"></i></button>
-        <mat-menu #menu="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="mat-elevation-z2">
-          <button mat-menu-item (click)="onLogout()">Sair</button>
-        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menu" class="float-right">{{params.name}} <fa-icon [icon]="faAngleDown"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="notificacoes" class="float-right"> <fa-icon [icon]="faBell" size="lg"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="ecosistema" class="float-right"> <fa-icon [icon]="faTh" size="lg"></fa-icon></button>
       </mat-toolbar-row>
     </mat-toolbar>
 
@@ -31,5 +30,55 @@
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
-
 </mat-sidenav-container>
+
+<mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
+  <div class="mr-4 ml-4">
+    <span>{{params.fullName}}</span>
+    <small class="d-block">{{params.company}}</small>
+
+    <div class="mt-3">
+      <a mat-raised-button>Trocar Senha</a>
+      <a class="ml-2" mat-raised-button (click)="onLogout()">Sair</a>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #notificacoes="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
+  <div class="mr-4 ml-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <span class="d-block">First item</span>
+        <small>Conteudo</small>
+      </li>
+      <li class="list-group-item">
+        <span class="d-block">Second item</span>
+        <small>Conteudo</small>
+      </li>
+      <li class="list-group-item">
+        <span class="d-block">Third item</span>
+        <small>Conteudo</small>
+      </li>
+      <li class="list-group-item">
+        <span class="d-block">Fourth item</span>
+        <small>Conteudo</small>
+      </li>
+    </ul>
+  </div>
+</mat-menu>
+
+<mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
+  <div class="mr-4 ml-4 d-flex">
+    <div class="row">
+      <div class="" *ngFor="let item of params.produtos">
+        <a [href]="item.url + '/token/' + params.token" target="_self" style="cursor: pointer;">
+          <div class="card mat-elevation-z2 m-2">
+            <div class="card-body">
+              <img [src]="item.imgUrl" height="30">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</mat-menu>

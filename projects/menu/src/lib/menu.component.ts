@@ -1,15 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faAngleDown, faBell, faTh } from '@fortawesome/free-solid-svg-icons';
+import { MenuInterface } from './menu.interface';
 
 @Component({
-  selector: 'lib-menu',
+  selector: 'lib-ecosistema-menu',
   templateUrl: 'menu.component.html',
   styleUrls: ['menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  @Input() menuItems: [];
-  @Input() logoUrl: string;
-  @Input() name: string;
+  @Output() logout = new EventEmitter();
+  @Input() params: MenuInterface;
+
+  faAngleDown = faAngleDown;
+  faBell = faBell;
+  faTh = faTh;
 
   config = {
     paddingAtStart: true,
@@ -21,13 +26,8 @@ export class MenuComponent implements OnInit {
     interfaceWithRoute: true
   };
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   onLogout(): void {
-    console.log('Logout');
+    this.logout.emit(true);
   }
 
   selectItem(sidenav: any): void {

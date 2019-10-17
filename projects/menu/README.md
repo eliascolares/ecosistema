@@ -1,24 +1,59 @@
-# Menu
+# Ecosistema Dcide
+## Menu
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
+#### Instalando
+`npm install @eliascolares/menu --save`
 
-## Code scaffolding
+#### Configurando
+Adicione o MenuModule no exports do `SharedModule`
 
-Run `ng generate component component-name --project menu` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project menu`.
-> Note: Don't forget to add `--project menu` or else it will be added to the default project in your `angular.json` file. 
+#### Parametros obrigatórios
+A lib espera como configuração um objeto com os seguintes valores  
+```
+    fullName: string; 
+    logoUrl: string; 
+    company: string; 
+    token: string; 
+    name: string;
+    menuItems: []; 
+    produtos: []; 
+```
+Como saída a lib retorna para o component um valor `true` quando o usuário clica no botão sair para deslogar, 
+deve ser implementado no código o service para deslogar o usuário na api
 
-## Build
+#### Exemplo entrada
+```
+parametros = {
+    fullName: 'Elias Colares',
+    logoUrl: '../../../../assets/images/image.png',
+    company: 'Company Teste',
+    name: 'Elias',
+    token: '123456789',
+    menuItems: [
+        {
+            label: 'Url 1',
+            link: '/path'
+        },
+        {
+            label: 'Url 2',
+            items: [
+                {
+                  label: 'Url child 1',
+                  link: '/path/path'
+                }
+            ]
+        }
+    ]
+    
+}
+```
+#### Exemplo saída
+```
+onLogout(event): void {
+    if(event) {
+        this.authService.logout().subscribe(() => {});
+    }
+}
+```
 
-Run `ng build menu` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build menu`, go to the dist folder `cd dist/menu` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test menu` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`<lib-ecosistema-menu [params]="parametros" [logout]="onLogout($event)"></lib-ecosistema-menu>`
