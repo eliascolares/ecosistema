@@ -1,4 +1,5 @@
 export interface MenuInterface {
+  footerPool: boolean;
   fullName: string;
   logoUrl: string;
   company: string;
