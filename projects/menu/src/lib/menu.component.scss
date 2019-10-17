@@ -85,3 +85,39 @@ hr {
 .mat-menu-panel {
   max-width: fit-content !important;
 }
+
+.bg-footer-1 {
+  color: #333333;
+  background-color: #E9E6E7;
+  line-height: 14px;
+}
+
+.bg-footer-2 {
+  color: #FFFFFF;
+  background-color: #333333;
+  font-size: 12px;
+}
+
+.footer-link {
+  color: #40B000;
+}
+
+.footer-link-grey {
+  color: #333333;
+}
+
+hr {
+  border-top: 1px solid white;
+}
+
+.sidenav-right {
+  width: 150px;
+}
+
+.float-button {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background-color: #40b000;
+  z-index: 1;
+}
