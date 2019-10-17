@@ -4,14 +4,14 @@ import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToo
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     MenuComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

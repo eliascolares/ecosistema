@@ -3,7 +3,7 @@
 
     <ng-material-multilevel-menu
       [configuration]='config'
-      [items]='params.menuItems'
+      [items]='params?.menuItems'
       (selectedItem)="selectItem(sidenav)">
     </ng-material-multilevel-menu>
   </mat-sidenav>
@@ -29,6 +29,7 @@
     <div class="container-fluid">
       <router-outlet></router-outlet>
     </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 
@@ -70,7 +71,7 @@
 <mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
   <div class="mr-4 ml-4 d-flex">
     <div class="row">
-      <div class="" *ngFor="let item of params.produtos">
+      <div class="" *ngFor="let item of params?.produtos">
         <a [href]="item.url + '/token/' + params.token" target="_self" style="cursor: pointer;">
           <div class="card mat-elevation-z2 m-2">
             <div class="card-body">

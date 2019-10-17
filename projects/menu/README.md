@@ -49,11 +49,11 @@ parametros = {
 ```
 #### Exemplo saída
 ```
-onLogout(event): void {
+onLogout(event: Event): void {
     if(event) {
         this.authService.logout().subscribe(() => {});
     }
 }
 ```
 
-`<lib-ecosistema-menu [params]="parametros" [logout]="onLogout($event)"></lib-ecosistema-menu>`
+`<lib-ecosistema-menu [params]="parametros" (logout)="onLogout($event)"></lib-ecosistema-menu>`
