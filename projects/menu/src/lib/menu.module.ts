@@ -5,6 +5,7 @@ import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     NgMaterialMultilevelMenuModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LazyLoadImageModule
   ],
   exports: [
     MenuComponent

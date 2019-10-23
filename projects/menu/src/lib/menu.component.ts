@@ -12,6 +12,7 @@ export class MenuComponent {
   @Output() logout = new EventEmitter();
   @Input() params: MenuInterface;
 
+  public defaultImage = '../../../../assets/images/image_loading.gif';
   faAngleDown = faAngleDown;
   faBell = faBell;
   faTh = faTh;

@@ -152,7 +152,8 @@
         <a [href]="item.url + '/token/' + params.token" target="_self" style="cursor: pointer;">
           <div class="card mat-elevation-z2 m-2">
             <div class="card-body">
-              <img [src]="item.imgUrl" height="30">
+              <img [defaultImage]="defaultImage" [lazyLoad]="item.imgUrl" height="30">
+<!--              <img [src]="item.imgUrl" height="30">-->
             </div>
           </div>
         </a>
