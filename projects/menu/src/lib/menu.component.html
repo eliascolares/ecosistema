@@ -8,6 +8,30 @@
     </ng-material-multilevel-menu>
   </mat-sidenav>
 
+  <mat-sidenav #right position="end" fixedInViewport="true" fixedTopGap="50" class="sidenav">
+    <div class="p-3 configuracoes" [formGroup]="formConfigs">
+      <h5>
+        <fa-icon [icon]="faCog"></fa-icon> Configurações
+      </h5>
+
+      <hr style="border-top: 1px solid #717171;">
+
+      <mat-form-field>
+        <mat-label>Idioma</mat-label>
+        <mat-select formControlName="language" (selectionChange)="changeLanguage($event)">
+          <mat-option *ngFor="let item of params.idiomas" [value]="item.value">{{item.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tema</mat-label>
+        <mat-select formControlName="theme" (selectionChange)="changeTheme($event)">
+          <mat-option *ngFor="let item of params.temas" [value]="item.value">{{item.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar class="navbar-black mat-elevation-z2">
       <mat-toolbar-row>
@@ -27,7 +51,11 @@
     </mat-toolbar>
 
     <div class="container-fluid">
-      <router-outlet></router-outlet>
+      <router-outlet>
+        <button class="float-button float-right" mat-mini-fab (click)="right.open()">
+          <fa-icon [icon]="faCog"></fa-icon>
+        </button>
+      </router-outlet>
     </div>
 
     <!-- Footer Pool-->
@@ -153,7 +181,6 @@
           <div class="card mat-elevation-z2 m-2">
             <div class="card-body">
               <img [defaultImage]="defaultImage" [lazyLoad]="item.imgUrl" height="30">
-<!--              <img [src]="item.imgUrl" height="30">-->
             </div>
           </div>
         </a>
