@@ -40,6 +40,13 @@ mat-toolbar { height: 40px !important; }
   transition: width .2s ease-in;
 }
 
+mat-toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
 .amml-submenu {
   background-color: #333333 !important;
   margin-left: 0px !important;
