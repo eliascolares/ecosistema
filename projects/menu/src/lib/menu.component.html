@@ -173,7 +173,7 @@
   </div>
 </mat-menu>
 
-<mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
+<mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3" *ngIf="params?.ecosistema">
   <div class="mr-4 ml-4 d-flex">
     <div class="row">
       <div class="" *ngFor="let item of params?.produtos">
