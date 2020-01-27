@@ -1,4 +1,5 @@
 export interface MenuInterface {
+  ecosistema: boolean;
   footerPool: boolean;
   fullName: string;
   logoUrl: string;

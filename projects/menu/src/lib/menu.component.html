@@ -45,8 +45,8 @@
         <span class="spacer"></span>
 
         <button mat-button [matMenuTriggerFor]="menu" class="float-right">{{params.name}} <fa-icon [icon]="faAngleDown"></fa-icon></button>
-        <button mat-button [matMenuTriggerFor]="notificacoes" class="float-right"> <fa-icon [icon]="faBell" size="lg"></fa-icon></button>
-        <button mat-button [matMenuTriggerFor]="ecosistema" class="float-right"> <fa-icon [icon]="faTh" size="lg"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="notificacoes" class="float-right"> <fa-icon [icon]="faBell" size="lg" *ngIf="params?.ecosistema"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="ecosistema" class="float-right"> <fa-icon [icon]="faTh" size="lg" *ngIf="params?.ecosistema"></fa-icon></button>
       </mat-toolbar-row>
     </mat-toolbar>
 
@@ -173,7 +173,7 @@
   </div>
 </mat-menu>
 
-<mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3" *ngIf="params?.ecosistema">
+<mat-menu #ecosistema="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false" class="mat-elevation-z2 mt-3">
   <div class="mr-4 ml-4 d-flex">
     <div class="row">
       <div class="" *ngFor="let item of params?.produtos">
