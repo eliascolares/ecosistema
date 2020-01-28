@@ -45,8 +45,8 @@
         <span class="spacer"></span>
 
         <button mat-button [matMenuTriggerFor]="menu" class="float-right">{{params.name}} <fa-icon [icon]="faAngleDown"></fa-icon></button>
-        <button mat-button [matMenuTriggerFor]="notificacoes" class="float-right"> <fa-icon [icon]="faBell" size="lg" *ngIf="params?.ecosistema"></fa-icon></button>
-        <button mat-button [matMenuTriggerFor]="ecosistema" class="float-right"> <fa-icon [icon]="faTh" size="lg" *ngIf="params?.ecosistema"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="notificacoes" class="float-right" *ngIf="params?.ecosistema"> <fa-icon [icon]="faBell" size="lg"></fa-icon></button>
+        <button mat-button [matMenuTriggerFor]="ecosistema" class="float-right" *ngIf="params?.ecosistema"> <fa-icon [icon]="faTh" size="lg"></fa-icon></button>
       </mat-toolbar-row>
     </mat-toolbar>
 
